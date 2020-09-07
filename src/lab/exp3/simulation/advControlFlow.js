@@ -167,26 +167,63 @@ window.view = {
     	this.clearDivs()
     	var selected_loop = this.getSelectedLoop()
 		var inputValue = document.getElementById('simpleLoopInput').value
-		if (selected_loop === 'for' && inputValue !== '' && !isNaN(model.inp) )
+		if (selected_loop === 'for')
 		{
-			this.displayLoop('forLoopContent', 'codeContentFor1')
-		}
-		if (selected_loop === 'while' && inputValue !== '' && !isNaN(model.inp))
-		{
-			this.displayLoop('whileLoopContent', 'codeContentWhile1')
-		}
-		if (selected_loop === 'do-while' && inputValue !== '' && !isNaN(model.inp))
-		{
-		 	this.displayLoop('dowhileLoopContent', 'codeContentDoWhile1')
-		}
-		this.disableButton('btnStart')
-		this.changeClass( 'btnStart', 'buttonDisable startButton')
-		this.enableButton('btnNext')
-		this.changeClass( 'btnNext', 'button nextButton')
-		this.disableButton('loopList')
-		this.changeClass( 'loopList', 'buttonDisable loopList')
-		this.disableButton('simpleLoopInput')
+			if (inputValue !== '' && !isNaN(model.inp) && inputValue <= 20)
+			{
+				this.displayLoop('forLoopContent', 'codeContentFor1');
+			}
+			else
+			{
+				alert('Invalid Input');
+				return false;
+			}
+			this.disableButton('btnStart')
+			this.changeClass( 'btnStart', 'buttonDisable startButton')
+			this.enableButton('btnNext')
+			this.changeClass( 'btnNext', 'button nextButton')
+			this.disableButton('loopList')
+			this.changeClass( 'loopList', 'buttonDisable loopList')
+			this.disableButton('simpleLoopInput')
 	},
+		if (selected_loop === 'while') 
+		{
+			if (inputValue !== '' && !isNaN(model.inp) && inputValue <= 20)
+			{	
+				this.displayLoop('whileLoopContent', 'codeContentWhile1');
+			}
+			else
+			{
+				alert('Invalid Input');
+				return false;
+			}
+			this.disableButton('btnStart')
+			this.changeClass( 'btnStart', 'buttonDisable startButton')
+			this.enableButton('btnNext')
+			this.changeClass( 'btnNext', 'button nextButton')
+			this.disableButton('loopList')
+			this.changeClass( 'loopList', 'buttonDisable loopList')
+			this.disableButton('simpleLoopInput')
+		}
+		
+		if (selected_loop === 'do-while')
+		{
+		 	if (inputValue !== '' && !isNaN(model.inp) && inputValue <= 20)
+			{
+				this.displayLoop('dowhileLoopContent', 'codeContentDoWhile1');
+			}
+			else{
+				alert('Invalid Input');
+				return false;
+			}
+			this.disableButton('btnStart')
+			this.changeClass( 'btnStart', 'buttonDisable startButton')
+			this.enableButton('btnNext')
+			this.changeClass( 'btnNext', 'button nextButton')
+			this.disableButton('loopList')
+			this.changeClass( 'loopList', 'buttonDisable loopList')
+			this.disableButton('simpleLoopInput')
+		}
 	updateModelAndShowResult: function() {
 		if( model.inp >= 1)
 		{	
